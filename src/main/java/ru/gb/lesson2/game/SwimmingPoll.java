@@ -1,6 +1,6 @@
 package ru.gb.lesson2.game;
 
-public class SwimmingPoll implements Obstacle {
+public class SwimmingPoll {
 
     private final int distance;
 
@@ -8,8 +8,7 @@ public class SwimmingPoll implements Obstacle {
         this.distance = distance;
     }
 
-    @Override
-    public boolean pass(Participant participant) {
-        return participant.getSwim() >= distance;
+    public boolean pass(CanSwim canSwim) {
+        return canSwim.getSwim() >= distance;
     }
 }
