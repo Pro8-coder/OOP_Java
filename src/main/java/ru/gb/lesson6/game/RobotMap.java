@@ -1,4 +1,4 @@
-package ru.gb.lesson5.game;
+package ru.gb.lesson6.game;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,7 +62,7 @@ public class RobotMap {
     }
 
     public boolean delete(Long id) {
-        Optional<RobotMap.Robot> robot = this.getById(id);
+        Optional<Robot> robot = this.getById(id);
         if (robot.isPresent()) {
             Robot value = robot.get();
             robots.remove(value);
@@ -71,7 +71,7 @@ public class RobotMap {
         return false;
     }
 
-    public class Robot {
+    public class Robot implements RobotInterface {
 
         public static final Direction DEFAULT_DIRECTION = Direction.TOP;
 
@@ -87,11 +87,13 @@ public class RobotMap {
             this.point = point;
         }
 
+        @Override
         public void changeDirection(Direction direction) {
             this.direction = direction;
             System.out.println("Робот " + id + " развёрнут в " + direction);
         }
 
+        @Override
         public void move() {
             Point newPoint = switch (direction) {
                 case TOP -> new Point(point.x() - 1, point.y());
@@ -106,9 +108,6 @@ public class RobotMap {
         }
 
         @Override
-        public String toString() {
-            return "[" + id + "] " + point.toString() + " [" + direction.name() + "]";
-        }
+        public String toString() { return "[" + id + "] " + point.toString() + " [" + direction.name() + "]"; }
     }
-
 }

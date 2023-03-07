@@ -1,4 +1,4 @@
-package ru.gb.lesson5.game;
+package ru.gb.lesson6.game;
 
 import java.util.Optional;
 

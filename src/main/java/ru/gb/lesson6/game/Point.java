@@ -1,4 +1,4 @@
-package ru.gb.lesson5.game;
+package ru.gb.lesson6.game;
 
 import java.util.Objects;
 
@@ -38,8 +38,4 @@ public class Point {
     public int hashCode() {
         return Objects.hash(x, y);
     }
-
-    // if o1.equals(o2) => o1.hashCode() == o2.hashCode()
-    // if o1.hashCode() != o2.hashCode() => !o1.equals(o2)
-
 }
